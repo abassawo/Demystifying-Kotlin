@@ -1,11 +1,10 @@
 package main
 
 fun main() {
-
     println("What's your name?")
-    val userName = readLine()
 
-    if (userName != null) {
-        Game(userName = userName).startGame()
+    val enteredUserName = readLine()
+    if (enteredUserName != null) {
+        Game(userName = enteredUserName).startGame()
     }
 }

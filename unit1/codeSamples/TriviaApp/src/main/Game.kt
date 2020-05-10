@@ -3,10 +3,11 @@ package main
 class Game(val userName: String) {
 
     fun startGame() {
-        val category = "Tv shows"
-        introduceCategory(category)
+        println("What category?")
+        val category = readLine()
+        introduceCategory(category!!)
 
-        val questionBank = QuestionBank(category = "Tv shows")
+        val questionBank = QuestionBank(category = category)
         askQuestions(questionBank)
     }
 
@@ -24,6 +25,11 @@ class Game(val userName: String) {
 
     private fun askQuestions(questionBank: QuestionBank) {
         val questions = questionBank.questions
-        // todo - ask all the questions.
+        questions.forEach {
+            println(it)  // Asking the question
+            val enteredAnswer = readLine()  // Read and print the user's response
+            questionBank.checkAnswer(it, enteredAnswer!!) // Check if it was correct don't do bang bangs but im doing it rn
+            // todo - if they are correct, add 100 dollars to their account
+        }
     }
 }
